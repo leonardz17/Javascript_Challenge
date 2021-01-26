@@ -22,6 +22,8 @@ function runEnter() {
 
     var tbody = d3.select("tbody");
 
+    tbody.text("");
+
     filteredData.forEach(function(tabledata) {
         var tr = tbody.append("tr");
 
