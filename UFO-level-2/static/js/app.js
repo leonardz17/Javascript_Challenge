@@ -11,13 +11,22 @@ function runEnter() {
     d3.event.preventDefault();
 
     var inputElement = d3.select("#datetime");
-
     var inputValue = inputElement.property("value");
+    var inputElement1 = d3.select("#cityname");
+    var inputValue1 = inputElement1.property("value");
+    var inputElement2 = d3.select("#statename");
+    var inputValue2 = inputElement2.property("value");
+    var inputElement3 = d3.select("#countryname");
+    var inputValue3 = inputElement3.property("value");
+    var inputElement4 = d3.select("#shapename");
+    var inputValue4 = inputElement4.property("value");
 
-    console.log(inputValue);
-    console.log(tableData);
-
-    var filteredData = tableData.filter(date => date.datetime === inputValue);
+    var filteredData = tableData.filter(data => 
+        data.datetime === inputValue && 
+        data.city === inputValue1 && 
+        data.state === inputValue2 && 
+        data.country === inputValue3 && 
+        data.shape ===inputValue4);
     console.log(filteredData);
 
     var tbody = d3.select("tbody");
@@ -35,9 +44,7 @@ function runEnter() {
         tr.append("td").text(tabledata.durationMinutes);
         tr.append("td").text(tabledata.comments);
     });
-    
+
 };
-
-
 button.on("click", runEnter);
-form.on("submit",runEnter);
+form.on("submit", runEnter);
